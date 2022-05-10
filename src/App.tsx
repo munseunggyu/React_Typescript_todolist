@@ -1,6 +1,8 @@
 import React from 'react';
 import {createGlobalStyle} from 'styled-components';
-import ToDo from './ToDo';
+import { Routes,Route } from 'react-router-dom';
+import SignIn from './SignIn';
+import Todo from './Todo';
 
 const GlobalStyle = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -53,11 +55,15 @@ table {
 
 function App() {
   return (
-    <>
-      <GlobalStyle />
-      <ToDo />
-    </>
-  );
+		<>
+			<GlobalStyle /> 
+			<Routes>
+				<Route path='/signin' element={<SignIn />} />
+				<Route path='/' element={<Todo />} />
+			</Routes>
+		</>
+	);
 }
+
 
 export default App;
