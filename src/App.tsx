@@ -2,7 +2,7 @@ import React from 'react';
 import {createGlobalStyle} from 'styled-components';
 import { Routes,Route } from 'react-router-dom';
 import SignIn from './SignIn';
-import Todo from './Todo';
+import ToDoList from './ToDoList';
 
 const GlobalStyle = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -59,7 +59,8 @@ function App() {
 			<GlobalStyle /> 
 			<Routes>
 				<Route path='/signin' element={<SignIn />} />
-				<Route path='/' element={<Todo />} />
+				<Route path='/' element={<ToDoList />} />
+				
 			</Routes>
 		</>
 	);
