@@ -1,25 +1,16 @@
-import React from "react";
 import { useForm } from "react-hook-form";
-import { atom, useRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { todoState } from "../atoms";
 
-interface IToDo{
-  text:string;
-  id:number;
-  category: 'To_Do' | 'Doing' | 'Done'
-}
 interface IForm{
   todo:string;
 }
 
-const toDoState = atom<IToDo[]>({
-  key:'todo',
-  default:[]
-})
 
 function CreateToDo(){
-  const [ToDos,setToDos] = useRecoilState(toDoState);
+  const setToDos = useSetRecoilState(todoState);
   const {register,handleSubmit,setValue} = useForm<IForm>()
-  const onSubmit = ({todo}:IForm) => {
+  const handleValid  = ({todo}:IForm) => {
     setToDos(oldToDos => [{
       text: todo,
       id:Date.now(),
@@ -28,7 +19,7 @@ function CreateToDo(){
     setValue('todo',"")
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(handleValid)}>
       <input {...register("todo")} />
       <button>Add</button>
     </form>

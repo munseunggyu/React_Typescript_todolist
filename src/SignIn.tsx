@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 //     setValue(e.currentTarget.value);
 //   }
 //   const [erro,setErro] = useState(false)
+//   e:React.MouseEvent<HTMLButtonElement> form 형태없이 button 
 //   const onSubmit =(e:React.FormEvent<HTMLFormElement>) => {
 //     e.preventDefault();
 //     if(value.length > 10) {
