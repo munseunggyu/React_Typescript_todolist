@@ -50,7 +50,6 @@ function SignIn(){
       {message:"Password arer not the same"},
       {shouldFocus:true})
     }
-    
   }
   return(
     <div>

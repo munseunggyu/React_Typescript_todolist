@@ -2,7 +2,7 @@ import React from 'react';
 import {createGlobalStyle} from 'styled-components';
 import { Routes,Route } from 'react-router-dom';
 import SignIn from './SignIn';
-import ToDoList from './ToDoList';
+import Hey from './hey';
 
 const GlobalStyle = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -32,6 +32,8 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+  background-color: #3f8cf2;
+
 }
 ol, ul {
 	list-style: none;
@@ -59,8 +61,7 @@ function App() {
 			<GlobalStyle /> 
 			<Routes>
 				<Route path='/signin' element={<SignIn />} />
-				<Route path='/' element={<ToDoList />} />
-				
+				<Route path='/' element={<Hey />} />
 			</Routes>
 		</>
 	);
