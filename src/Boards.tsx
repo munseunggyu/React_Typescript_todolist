@@ -34,9 +34,10 @@ function Hey(){
     if(!destination) return;
     if(destination?.droppableId === source.droppableId){
     setToDos(prev => {
-          let boardCopy = [...prev[source.droppableId]]
+          const boardCopy = [...prev[source.droppableId]]
+          const taskObj = boardCopy[source.index]
           boardCopy.splice(source.index,1)
-          boardCopy.splice(destination?.index,0,draggableId);
+          boardCopy.splice(destination?.index,0,taskObj);
           return {
             ...prev,
             [source.droppableId]: boardCopy
@@ -46,9 +47,10 @@ function Hey(){
     if(destination.droppableId !== source.droppableId){
       setToDos(prev => {
         const sourceBoard = [...prev[source.droppableId]]
+        const taskObj = sourceBoard[source.index]
         const destinationBoard= [...prev[destination.droppableId]]
         sourceBoard.splice(source.index,1)
-        destinationBoard.splice(destination.index,0,draggableId)
+        destinationBoard.splice(destination.index,0,taskObj)
         return {
           ...prev,
           [source.droppableId]:sourceBoard,
