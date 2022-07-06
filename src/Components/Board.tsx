@@ -28,6 +28,9 @@ const Area = styled.div<IAreaProps>`
     transition: background-color .3s ease-in-out;
     padding:20px;
 `
+const Input = styled.input`
+    text-align:center;    
+`
 const Form = styled.form`
     width:100%;
     input{
@@ -73,7 +76,7 @@ function Board({toDos,boardId}:IBoardProps){
         <Wrapper>
             <Title> {boardId} </Title>
             <Form onSubmit={handleSubmit(onValid)}>
-                <input 
+                <Input 
                 {...register("toDo",{required:true})}
                 type="text" placeholder={`Ask task on ${boardId}`} />
             </Form>
@@ -84,7 +87,7 @@ function Board({toDos,boardId}:IBoardProps){
                 isDraggingFromThis = {Boolean(info.draggingFromThisWith)}
                 ref={magic.innerRef} {...magic.droppableProps}>
                     {toDos.map((toDo, index) => (
-                        <DraggableCard key={toDo.id} toDoId={toDo.id} toDoText={toDo.text} index={index} />
+                        <DraggableCard key={toDo.id} boardId={boardId} toDoId={toDo.id} toDoText={toDo.text} index={index} />
                     ))}
                     {magic.placeholder}
                 </Area>
