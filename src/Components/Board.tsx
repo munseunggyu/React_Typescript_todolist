@@ -5,6 +5,7 @@ import { useSetRecoilState } from "recoil";
 import styled from "styled-components"
 import { ITodo, todoState } from "../atom";
 import DraggableCard from "./DraggableCard"
+import Nav from "./Nav";
 
 
 const Wrapper = styled.div`
@@ -21,22 +22,23 @@ const Title = styled.div`
     font-weight:600;
     margin-bottom:10px;
     font-size:18px;
-`
+`;
 const Area = styled.div<IAreaProps>`
     background-color:${props=> props.isDraggingOver ? "#dfe6e9" : props.isDraggingFromThis ? "#b2bec3" : "transparent"};
     flex-grow:1;
     transition: background-color .3s ease-in-out;
     padding:20px;
-`
+`;
+
 const Input = styled.input`
     text-align:center;    
-`
+`;
 const Form = styled.form`
     width:100%;
     input{
         width:100%;
     }
-`
+`;
 interface IAreaProps{
     isDraggingFromThis:boolean,
     isDraggingOver:boolean

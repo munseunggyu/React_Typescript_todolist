@@ -1,8 +1,10 @@
 import React from 'react';
 import {createGlobalStyle} from 'styled-components';
 import { Routes,Route } from 'react-router-dom';
-import SignIn from './SignIn';
+import SignIn from './SignUp';
 import Boards from './Boards';
+import Nav from './Components/Nav';
+import SignUp from './SignUp';
 
 const GlobalStyle = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -60,7 +62,8 @@ function App() {
 		<>
 			<GlobalStyle /> 
 			<Routes>
-				<Route path='/signin' element={<SignIn />} />
+				<Route path='siginin' element={<SignIn /> } />
+				<Route path='/signup' element={<SignUp />} />
 				<Route path='/' element={<Boards />} />
 			</Routes>
 		</>

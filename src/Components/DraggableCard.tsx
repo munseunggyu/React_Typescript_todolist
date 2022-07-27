@@ -13,7 +13,9 @@ const CardBox = styled.div<{isDragging:boolean}>`
   display: flex;
   justify-content:space-between;
   `;
-
+const DelBtn = styled.button`
+  background-color:#bb1aca;
+`;
 
 interface IDraggableCardProps {
     toDoId:number;

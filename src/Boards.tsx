@@ -4,6 +4,7 @@ import {DragDropContext, Draggable, Droppable, DropResult} from 'react-beautiful
 import styled from "styled-components";
 import { todoState } from "./atom";
 import Board from "./Components/Board";
+import Nav from "./Components/Nav";
 
 const Wrapper = styled.div`
   display: flex;
@@ -62,6 +63,7 @@ function Hey(){
   }
   return(
     <DragDropContext onDragEnd={onDragEnd}>
+      <Nav />
        <Wrapper>
         <Boards>
           {Object.keys(toDos).map(boardId => <Board boardId={boardId} key={boardId} toDos={toDos[boardId]} />)}
