@@ -16,5 +16,12 @@ export const todoState = atom<IToDoState>({
     Doing:[],
     Done:[]
   }
+})
+interface ISign{
+  number:number
+}
 
+export const signState = atom({
+  key:'sign',
+  default:0
 })

@@ -1,6 +1,9 @@
 import React,{useState} from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { Wrapper } from './Boards';
+import { FormWrapper, Input, SignBtn, Title } from './SignIn';
 
 // function ToDo(){
 //   const [value,setValue] =useState("")
@@ -41,6 +44,8 @@ password1: string;
 }
 
 function SignUp(){
+  const navigate = useNavigate()
+  const goSignIn = () => navigate('/signin')
   const {register,watch,handleSubmit,formState:{errors},setError} = useForm<IForm>({
     defaultValues:{
       email:"@naver.com"
@@ -52,13 +57,16 @@ function SignUp(){
       setError("password1",
       {message:"Password arer not the same"},
       {shouldFocus:true})
+    }else{
+      goSignIn()
     }
   }
   return(
-    <div>
-      <form style={{display:'flex',flexDirection:'column'}}
+    <Wrapper style={{flexDirection:'column'}}>
+      <Title onClick={goSignIn}>TDL</Title>
+    <FormWrapper style={{display:'flex',flexDirection:'column'}}
        onSubmit={handleSubmit(onValid)}>
-      <input {...register('email',{
+      <Input {...register('email',{
         required:"Email is required",
         pattern: {
           value: /^[A-Za-z0-9._%+-]+@naver.com$/,
@@ -70,30 +78,30 @@ function SignUp(){
         }
         })} placeholder="Email" />
         <span> {errors?.email?.message} </span>
-      <input {...register('fristName',{
+      <Input {...register('fristName',{
         required:"First Name is requred",
       })} placeholder="First Name" />
         <span> {errors?.fristName?.message} </span>
-      <input {...register('lastName',{
+      <Input {...register('lastName',{
         required:"Last Name is requred",
       })} placeholder="Last Name" />
         <span> {errors?.lastName?.message} </span>
-      <input {...register('username',{
+      <Input {...register('username',{
         required:"User name is requred",
         })} placeholder="Username" />
         <span> {errors?.username?.message} </span>
-      <input {...register('password',{
+      <Input {...register('password',{
         required:"Password is requred",
         minLength:{
           value:5,
           message:'Your password Name is too short'
       }})} placeholder="Password" />
         <span> {errors?.password?.message} </span>
-      <input {...register('password1')} placeholder="Password1" />
+      <Input {...register('password1')} placeholder="Password1" />
         <span> {errors?.password1?.message} </span>
-        <button>Add</button>
-      </form>
-    </div>
+        <SignBtn>회원가입</SignBtn>
+      </FormWrapper>
+    </Wrapper>
   )
 }
 export default SignUp

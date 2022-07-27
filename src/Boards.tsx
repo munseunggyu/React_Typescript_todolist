@@ -2,11 +2,11 @@ import React from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import {DragDropContext, Draggable, Droppable, DropResult} from 'react-beautiful-dnd'
 import styled from "styled-components";
-import { todoState } from "./atom";
+import { signState, todoState } from "./atom";
 import Board from "./Components/Board";
 import Nav from "./Components/Nav";
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   max-width: 680px;
   width: 100%;
@@ -14,7 +14,6 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-
 `;
 
 const Boards = styled.div`
@@ -59,7 +58,6 @@ function Hey(){
         }
       })
     }
-    
   }
   return(
     <DragDropContext onDragEnd={onDragEnd}>

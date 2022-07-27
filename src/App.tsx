@@ -1,7 +1,7 @@
 import React from 'react';
 import {createGlobalStyle} from 'styled-components';
 import { Routes,Route } from 'react-router-dom';
-import SignIn from './SignUp';
+import SignIn from './SignIn';
 import Boards from './Boards';
 import Nav from './Components/Nav';
 import SignUp from './SignUp';
@@ -62,7 +62,7 @@ function App() {
 		<>
 			<GlobalStyle /> 
 			<Routes>
-				<Route path='siginin' element={<SignIn /> } />
+				<Route path='signin' element={<SignIn /> } />
 				<Route path='/signup' element={<SignUp />} />
 				<Route path='/' element={<Boards />} />
 			</Routes>

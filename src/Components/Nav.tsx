@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components"
+import { signState } from "../atom";
 
 
 const NavWrapper = styled.nav`
@@ -23,15 +25,23 @@ const Sign = styled.button`
 
 function Nav(){
     const navigate = useNavigate()
-    const goSigin = () => navigate('/signIn')
+    const goSign = () => navigate('/signin')
+    const [sign,setSign] = useRecoilState(signState)
+    const SignOut = () => {
+        setSign(prev => prev -1)
+    }
     return(
         <NavWrapper>
             <NavLogo>
                 TDL
             </NavLogo>
-            <Sign onClick={goSigin}>
-                로그인
+           { sign === 1 ?
+            <Sign onClick={SignOut}>
+                로그아웃
             </Sign>
+            : <Sign onClick={goSign}>
+                로그인
+            </Sign> }
         </NavWrapper>
     )
 }
