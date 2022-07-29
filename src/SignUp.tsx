@@ -63,7 +63,7 @@ function SignUp(){
   }
   return(
     <Wrapper style={{flexDirection:'column'}}>
-      <Title onClick={goSignIn}>TDL</Title>
+      <Title onClick={goSignIn}>TDL-RT</Title>
     <FormWrapper style={{display:'flex',flexDirection:'column'}}
        onSubmit={handleSubmit(onValid)}>
       <Input {...register('email',{

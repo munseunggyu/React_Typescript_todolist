@@ -33,7 +33,7 @@ function Nav(){
     return(
         <NavWrapper>
             <NavLogo>
-                TDL
+                TDL-RT
             </NavLogo>
            { sign ?
             <Sign onClick={SignOut}>
