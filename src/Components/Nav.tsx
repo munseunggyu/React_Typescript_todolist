@@ -28,14 +28,14 @@ function Nav(){
     const goSign = () => navigate('/signin')
     const [sign,setSign] = useRecoilState(signState)
     const SignOut = () => {
-        setSign(prev => prev -1)
+        setSign(false)
     }
     return(
         <NavWrapper>
             <NavLogo>
                 TDL
             </NavLogo>
-           { sign === 1 ?
+           { sign ?
             <Sign onClick={SignOut}>
                 로그아웃
             </Sign>

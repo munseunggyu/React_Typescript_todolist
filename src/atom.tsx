@@ -23,5 +23,5 @@ interface ISign{
 
 export const signState = atom({
   key:'sign',
-  default:0
+  default:false
 })

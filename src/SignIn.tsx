@@ -37,7 +37,7 @@ function SignIn(){
     const navigate = useNavigate()
     const setsign = useSetRecoilState(signState)
     const goHome = () => {
-        setsign(prev => prev+1)
+        setsign(true)
         navigate('/')
     }
     const goSignUp = () => navigate('/signup')
